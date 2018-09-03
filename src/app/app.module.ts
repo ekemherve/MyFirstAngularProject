@@ -7,6 +7,13 @@ import { HeaderComponent } from './header/header.component';
 import { CategorieComponent } from './categorie/categorie.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ProduitComponent } from './produit/produit.component';
+import { RouterModule, Route} from '@angular/router';
+
+const myRoutingTable: Route[] = [
+  {path: '',  component: ProduitComponent},
+  {path: 'produits',  component: ProduitComponent},
+  {path: 'produits/:id',  component: ProduitComponent}
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +25,8 @@ import { ProduitComponent } from './produit/produit.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(myRoutingTable)
   ],
   providers: [],
   bootstrap: [AppComponent]

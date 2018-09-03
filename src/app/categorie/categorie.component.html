@@ -1,11 +1,10 @@
-<div class="row">
-  <!--<div class="col-xl-3 col-sm-6 mb-3">-->
+<!--<div class="row">
     <div class="card text-white bg-primary o-hidden h-100" *ngFor='let categorie of categories'>
       <div class="card-body">
         <div class="card-body-icon">
           <i class="fas fa-fw fa-comments"></i>
         </div>
-        <div class="mr-5">{{categorie.titre}}</div>
+        <div class="mr-5" [routerLink]="['categorie']">{{categorie.titre}}</div>
       </div>
       <a class="card-footer text-white clearfix small z-1" href="#">
         <span class="float-left">View Details</span>
@@ -13,5 +12,11 @@
           <i class="fas fa-angle-right"></i>
         </span>
       </a>
-    <!--</div>-->
-  </div>
+  </div>-->
+<div class="row">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action bg-primary"
+           *ngFor='let categorie of categories'
+           [routerLink]="['/produits', categorie.id]">{{categorie.titre}}</a>
+    </div>
+</div>

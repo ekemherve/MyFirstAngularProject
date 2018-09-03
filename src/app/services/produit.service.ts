@@ -12,8 +12,13 @@ export class ProduitService {
 
   constructor(private _http: HttpClient) { }
 
-  lesCategories(): Observable<IProduit[]> {
+  lesProduits(): Observable<IProduit[]> {
 
     return this._http.get<IProduit[]>(this.URL);
+  }
+
+  lesProduitsParCategorie(idCategorie: string): Observable<IProduit[]> {
+
+    return this._http.get<IProduit[]>(this.URL + '/' + idCategorie);
   }
 }

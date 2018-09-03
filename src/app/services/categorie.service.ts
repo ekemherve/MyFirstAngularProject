@@ -16,4 +16,9 @@ export class CategorieService {
 
     return this._http.get<ICategorie[]>(this.URL);
   }
+
+  getCategorieById(id: string): Observable<ICategorie> {
+
+    return this._http.get<ICategorie>(this.URL + '/' + id);
+  }
 }
