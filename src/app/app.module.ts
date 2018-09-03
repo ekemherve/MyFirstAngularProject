@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { HeaderComponent } from './header/header.component';
 import { CategorieComponent } from './categorie/categorie.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CategorieComponent } from './categorie/categorie.component';
     CategorieComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
