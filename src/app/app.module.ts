@@ -8,6 +8,7 @@ import { CategorieComponent } from './categorie/categorie.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ProduitComponent } from './produit/produit.component';
 import { RouterModule, Route} from '@angular/router';
+import { PanierComponent } from './panier/panier.component';
 
 const myRoutingTable: Route[] = [
   {path: '',  component: ProduitComponent},
@@ -21,7 +22,8 @@ const myRoutingTable: Route[] = [
     PageAccueilComponent,
     HeaderComponent,
     CategorieComponent,
-    ProduitComponent
+    ProduitComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,
