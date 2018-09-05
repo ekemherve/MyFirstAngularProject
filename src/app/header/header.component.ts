@@ -19,9 +19,4 @@ export class HeaderComponent implements OnInit {
     this._pService.currentPanierContent.subscribe(message => this.taillePanier = message.length);
     console.log('>>>>>>>>>' + this.taillePanier);
   }
-
-  getTaille() {
-    this.taillePanier = this._pService.panier.length;
-  }
-
 }

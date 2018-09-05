@@ -23,6 +23,5 @@ export class PanierService {
     console.log('Produit ajouté');
     this.panier.push(produit);
     this.messageSource.next(this.panier);    // Firing some changes
-    console.log(this.panier.length);
   }
 }

@@ -1,0 +1,31 @@
+<div class="row">
+    <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Categorie</th>
+            <th scope="col">Prix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let produit of produits'>
+            <td>
+              <div class="card">
+                <div class="card text-white bg-primary o-hidden h-100 my-2">
+                  <img class="card-img-top"  style="width:150px" src="assets/images/pizza-celeri.jpg" alt="Card image of produit.nom">
+                  <div class="card-body">
+                    <h5 class="card-title">{{produit.nom}}</h5>
+                    <p class="card-text">{{produit.description}}.</p>
+                  </div>
+                  <button class="btn btn-success">Ajouter au panier</button><button class="btn btn-success">Supprimer</button>
+                </div>
+              </div>
+            </td>
+            <td>{{produit.categorie.titre}}</td>
+            <td>{{produit.prix}}</td>
+          </tr>
+          <tr>Total de votre panier ({{produits.length}}) {{prixTotal}}</tr>
+        </tbody>
+      </table>
+
+</div>

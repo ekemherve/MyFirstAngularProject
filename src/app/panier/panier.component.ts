@@ -11,12 +11,20 @@ export class PanierComponent implements OnInit {
 
 
   produits: IProduit[];
+  prixTotal = 0;
 
   constructor(private _pService: PanierService) { }
 
   ngOnInit() {
 
-    this.produits = this._pService.panier;
+    this._pService.currentPanierContent.subscribe(products => {this.produits = products; this.totalPanier(); } );
   }
 
+
+  totalPanier(): void {
+
+    this.produits.forEach(element => {
+      this.prixTotal += element.prix;
+    });
+  }
 }
