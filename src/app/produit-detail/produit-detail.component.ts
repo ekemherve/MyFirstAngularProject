@@ -4,6 +4,7 @@ import { ProduitService } from '../services/produit.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PanierService } from '../services/panier.service';
 
+
 @Component({
   selector: 'app-produit-detail',
   templateUrl: './produit-detail.component.html',
@@ -14,8 +15,10 @@ export class ProduitDetailComponent implements OnInit {
 
   produit: IProduit;
   idProduit: string;
+  taillePanier: number;
 
-  constructor(private _service: ProduitService, private _panier: PanierService, private _route: ActivatedRoute, private _router: Router) {
+  constructor(private _service: ProduitService, private _panier: PanierService, private _route: ActivatedRoute, private _router: Router,
+                       ) {
 
     this._route.paramMap.subscribe(res => {
       this.idProduit = res.get('id');
@@ -30,6 +33,7 @@ export class ProduitDetailComponent implements OnInit {
 
   addToPanier(produit: IProduit): void {
     this._panier.addToPanier(produit);
+
   }
 
 
