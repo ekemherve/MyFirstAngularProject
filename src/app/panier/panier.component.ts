@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IProduit } from '../domain/iproduit';
+import { PanierService } from '../services/panier.service';
 
 @Component({
   selector: 'app-panier',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanierComponent implements OnInit {
 
-  constructor() { }
+
+  produits: IProduit[];
+
+  constructor(private _pService: PanierService) { }
 
   ngOnInit() {
+
+    this.produits = this._pService.panier;
   }
 
 }

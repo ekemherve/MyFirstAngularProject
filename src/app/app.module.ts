@@ -9,11 +9,14 @@ import { HttpClientModule} from '@angular/common/http';
 import { ProduitComponent } from './produit/produit.component';
 import { RouterModule, Route} from '@angular/router';
 import { PanierComponent } from './panier/panier.component';
+import { ProduitDetailComponent } from './produit-detail/produit-detail.component';
 
 const myRoutingTable: Route[] = [
   {path: '',  component: ProduitComponent},
   {path: 'produits',  component: ProduitComponent},
-  {path: 'produits/:id',  component: ProduitComponent}
+  {path: 'produits/:titre',  component: ProduitComponent},
+  {path: 'detail-produit/:id',  component: ProduitDetailComponent},
+  {path: 'panier', component: PanierComponent}
 ];
 
 @NgModule({
@@ -23,7 +26,8 @@ const myRoutingTable: Route[] = [
     HeaderComponent,
     CategorieComponent,
     ProduitComponent,
-    PanierComponent
+    PanierComponent,
+    ProduitDetailComponent
   ],
   imports: [
     BrowserModule,

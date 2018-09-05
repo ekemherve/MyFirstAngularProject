@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ICategorie } from '../domain/icategorie';
+import { IProduit } from '../domain/iproduit';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,13 @@ export class CategorieService {
     return this._http.get<ICategorie[]>(this.URL);
   }
 
-  getCategorieById(id: string): Observable<ICategorie> {
+  lesProduits(): Observable<IProduit[]> {
 
-    return this._http.get<ICategorie>(this.URL + '/' + id);
+    return this._http.get<IProduit[]>(this.URL);
+  }
+
+  lesProduitsParCategorie(idCategorie: string): Observable<IProduit[]> {
+
+    return this._http.get<IProduit[]>(this.URL + '/' + idCategorie);
   }
 }

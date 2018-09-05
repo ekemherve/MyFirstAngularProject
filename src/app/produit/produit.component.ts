@@ -14,47 +14,38 @@ import { ICategorie } from '../domain/icategorie';
 export class ProduitComponent implements OnInit {
 
   produits: IProduit[];
-  urlActiveParCategorie: string;
+  idCategorie: string;
+  titre: string;
   subscription: Subscription;
-  // categorie: ICategorie = {id: 0, titre: '', produits: []};
 
-  constructor(private _service: ProduitService, private _route: ActivatedRoute,
-    private _router: Router, private _serviceCat: CategorieService) { }
+  constructor(private _service: ProduitService, private _serviceCategorie: CategorieService, private _route: ActivatedRoute,
+    private _router: Router) { }
 
   ngOnInit() {
-      // this.lesProduits();
-      /*this.subscription = this._route.paramMap.subscribe(res => {
-        this.urlActiveParCategorie = res.get('id');
-        this._serviceCat.getCategorieById(this.urlActiveParCategorie).subscribe(res2 => {this.categorie = res2; });
-      });*/
+
     this._route.paramMap.subscribe(routeActive => {
-                this.urlActiveParCategorie = routeActive.get('id');
+                // this.idCategorie = routeActive.get('id');
+                this.titre = routeActive.get('titre');
                 this.choisitLaBonneMethode();
               });
-    /*console.log('>>>>>>>>>>>>>>>>>>>>' + this.urlActiveParCategorie);
-    this.lesProduitsParCategorie(this.urlActiveParCategorie);*/
   }
-
-  /*getActivatedRoute(): void {
-    this.subscription = this._route.paramMap.subscribe( );
-  }*/
 
   lesProduits(): void {
 
     this._service.lesProduits().subscribe(cats => this.produits = cats);
   }
 
-  lesProduitsParCategorie(idCategorie: string): void {
+  lesProduitsParCategorie(): void {
 
-    this._service.lesProduitsParCategorie(idCategorie).subscribe(prd => this.produits = prd);
-  }
+    this._serviceCategorie.lesProduitsParCategorie(this.titre).subscribe(prd => this.produits = prd);
+   // this._service.lesProduitsParCategorie(this.titre, this.idCategorie).subscribe(prd => this.produits = prd);
+ }
 
   choisitLaBonneMethode() {
-
-    if (this.urlActiveParCategorie == null) {
+    if (this.titre == null) {
       this.lesProduits();
     } else {
-      this.lesProduitsParCategorie(this.urlActiveParCategorie);
+      this.lesProduitsParCategorie();
     }
   }
 

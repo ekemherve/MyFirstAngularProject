@@ -19,6 +19,11 @@ export class ProduitService {
 
   lesProduitsParCategorie(idCategorie: string): Observable<IProduit[]> {
 
+    console.log(this.URL);
     return this._http.get<IProduit[]>(this.URL + '/' + idCategorie);
+  }
+
+  leProduitParId(id: string): Observable<IProduit> {
+    return this._http.get<IProduit>(this.URL + '/' + id);
   }
 }

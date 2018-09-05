@@ -23,4 +23,5 @@ export class CategorieComponent implements OnInit {
     this._service.lesCategories().subscribe(cats => this.categories = cats);
   }
 
+
 }
