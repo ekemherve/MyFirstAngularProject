@@ -16,7 +16,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     // this.taillePanier = this._pService.panier.length;
-    this._pService.currentPanierContent.subscribe(message => this.taillePanier = message.length);
-    console.log('>>>>>>>>>' + this.taillePanier);
+    this._pService.currentPanierQuantite.subscribe(panierQuantite => this.taillePanier = panierQuantite);
+    // this._pService.currentPanierContent.subscribe(panier => this.taillePanier = panier);
+    // console.log('>>>>>>>>>' + this.taillePanier);
   }
 }

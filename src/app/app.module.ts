@@ -10,6 +10,7 @@ import { ProduitComponent } from './produit/produit.component';
 import { RouterModule, Route} from '@angular/router';
 import { PanierComponent } from './panier/panier.component';
 import { ProduitDetailComponent } from './produit-detail/produit-detail.component';
+import { FormsModule} from '@angular/forms';
 
 const myRoutingTable: Route[] = [
   {path: '',  component: ProduitComponent},
@@ -32,7 +33,8 @@ const myRoutingTable: Route[] = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(myRoutingTable)
+    RouterModule.forRoot(myRoutingTable),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

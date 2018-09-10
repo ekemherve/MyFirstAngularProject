@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IProduit } from '../domain/iproduit';
 import { PanierService } from '../services/panier.service';
 
@@ -16,15 +16,30 @@ export class PanierComponent implements OnInit {
   constructor(private _pService: PanierService) { }
 
   ngOnInit() {
+    // this.produits = this._pService.panier;
+    this._pService.currentPanier.subscribe(p => { this.produits = p; this.setPrixTotal(); });
 
-    this._pService.currentPanierContent.subscribe(products => {this.produits = products; this.totalPanier(); } );
   }
 
+  updatePanier() {
 
-  totalPanier(): void {
+    this._pService.next();
+    this.setPrixTotal();
+  }
 
+  setPrixTotal() {
+
+    this.prixTotal = 0;
     this.produits.forEach(element => {
-      this.prixTotal += element.prix;
+      this.prixTotal += element.prix * element.quantite;
     });
   }
+
+  delete(produit: IProduit) {
+
+
+    this._pService.delete(produit);
+    this._pService.next();
+  }
+
 }

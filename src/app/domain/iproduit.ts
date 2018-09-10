@@ -5,5 +5,6 @@ export interface IProduit {
   nom: string;
   prix: number;
   description: string;
-  categorie: ICategorie;
+  categorie?: ICategorie;
+  quantite: number;
 }

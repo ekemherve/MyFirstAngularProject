@@ -1,11 +1,11 @@
 <div class="card">
-    <div class="card text-white bg-primary o-hidden h-100 my-2"  *ngIf='produit'>
+    <div class="card text-white bg-primary o-hidden h-100 my-2">
       <img class="card-img-top"  style="width:150px" src="assets/images/pizza-celeri.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{produit.nom}}</h5>
         <p class="card-text">{{produit.description}}.</p>
       </div>
-      <button class="btn btn-success" (click)="addToPanier(produit)" >Ajouter au panier</button>
+      <button class="btn btn-success" (click)="updatePanier(produit)" >Ajouter au panier</button>
     </div>
   </div>
 

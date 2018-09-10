@@ -13,7 +13,7 @@ import { PanierService } from '../services/panier.service';
 export class ProduitDetailComponent implements OnInit {
 
 
-  produit: IProduit;
+  produit: IProduit = { id: 0, nom: '', quantite: 0, description: '', prix: 0};
   idProduit: string;
   taillePanier: number;
 
@@ -22,7 +22,7 @@ export class ProduitDetailComponent implements OnInit {
 
     this._route.paramMap.subscribe(res => {
       this.idProduit = res.get('id');
-      console.log('>>>>>>>>>>>'  + this.idProduit);
+      console.log('>>>>>>>>>>> '  + this.idProduit);
       this._service.leProduitParId(this.idProduit).subscribe(prod => this.produit = prod);
     });
   }
@@ -31,8 +31,9 @@ export class ProduitDetailComponent implements OnInit {
 
   }
 
-  addToPanier(produit: IProduit): void {
-    this._panier.addToPanier(produit);
+  updatePanier(produit: IProduit): void {
+    // this._panier.add(produit);
+    this._panier.updatePanier(produit);
 
   }
 

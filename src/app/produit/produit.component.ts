@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategorieService } from '../services/categorie.service';
 import { ICategorie } from '../domain/icategorie';
+import { PanierService } from '../services/panier.service';
 
 @Component({
   selector: 'app-produit',
@@ -19,7 +20,7 @@ export class ProduitComponent implements OnInit {
   subscription: Subscription;
 
   constructor(private _service: ProduitService, private _serviceCategorie: CategorieService, private _route: ActivatedRoute,
-    private _router: Router) { }
+    private _router: Router, private _panier: PanierService) { }
 
   ngOnInit() {
 
@@ -28,6 +29,12 @@ export class ProduitComponent implements OnInit {
                 this.titre = routeActive.get('titre');
                 this.choisitLaBonneMethode();
               });
+  }
+
+  updatePanier(produit: IProduit): void {
+    // this._panier.add(produit);
+    this._panier.updatePanier(produit);
+
   }
 
   lesProduits(): void {

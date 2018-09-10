@@ -5,6 +5,8 @@
             <th scope="col">Nom</th>
             <th scope="col">Categorie</th>
             <th scope="col">Prix</th>
+            <th scope="col">Quantite</th>
+            <th scope="col">TotalProduit</th>
           </tr>
         </thead>
         <tbody>
@@ -17,14 +19,19 @@
                     <h5 class="card-title">{{produit.nom}}</h5>
                     <p class="card-text">{{produit.description}}.</p>
                   </div>
-                  <button class="btn btn-success">Ajouter au panier</button><button class="btn btn-success">Supprimer</button>
+                  <button class="btn btn-success" (click)="delete(produit)">Supprimer</button>
                 </div>
               </div>
             </td>
             <td>{{produit.categorie.titre}}</td>
             <td>{{produit.prix}}</td>
+            <td><input type="number" min="0" [(ngModel)]="produit.quantite" (input)="updatePanier()"/></td>
+            <td>{{produit.prix * produit.quantite}}</td>
           </tr>
-          <tr>Total de votre panier ({{produits.length}}) {{prixTotal}}</tr>
+          <tr style="text-align: right">
+            <td colspan="4">Total de votre panier</td>
+            <td> {{prixTotal}}</td>
+          </tr>
         </tbody>
       </table>
 
