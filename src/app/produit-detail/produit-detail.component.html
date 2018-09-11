@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card text-white bg-primary o-hidden h-100 my-2">
-      <img class="card-img-top"  style="width:150px" src="assets/images/pizza-celeri.jpg" alt="Card image cap">
+      <img class="card-img-top"  *ngIf="produit.image" style="width:150px" src="assets/{{produit.image}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{produit.nom}}</h5>
         <p class="card-text">{{produit.description}}.</p>

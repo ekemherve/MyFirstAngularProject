@@ -13,7 +13,7 @@ import { PanierService } from '../services/panier.service';
 export class ProduitDetailComponent implements OnInit {
 
 
-  produit: IProduit = { id: 0, nom: '', quantite: 0, description: '', prix: 0};
+  produit: IProduit = { id: 0, nom: '', quantite: 0, description: '', prix: 0, image: ''};
   idProduit: string;
   taillePanier: number;
 
